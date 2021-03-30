@@ -2,6 +2,7 @@ const express = require("express")
 const server = express()
 
 server.get('/', (req, res) => {
-    return res.send('oi')
+    return res.sendFile(__dirname + "/views/index.html")
 })
+
 server.listen(3000, () => console.log('rodando'))
