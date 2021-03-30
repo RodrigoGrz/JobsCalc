@@ -1,8 +1,21 @@
-const express = require('express');
-const routes = express.Router()
+const express = require('express'); // express biblioteca para criar servidor
+const routes = express.Router() // Router (parte do express que cria as rotas)
 
-routes.get('/', (req, res) => {
-    return res.sendFile(__dirname + "/views/index.html")
-})
+const view = __dirname + "/views/" // usando template engine
+
+const profile = {
+    name: "Rodrigo",
+    avatar: "https://avatars.githubusercontent.com/u/68669322?v=4",
+    "monthly-budget": 3000,
+    "days-per-week": 5,
+    "hours-per-day": 5,
+    "vacation-per-year": 4
+}
+
+routes.get('/', (req, res) => res.render(view + "index"))
+routes.get('/job', (req, res) => res.render(view + "job"))
+routes.get('/job/edit', (req, res) => res.render(view + "job-edit"))
+routes.get('/profile', (req, res) => res.render(view + "profile", { profile }))
+
 
 module.exports = routes;
