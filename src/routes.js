@@ -5,7 +5,7 @@ const view = __dirname + "/views/" // usando template engine
 
 const profile = {
     name: "Rodrigo",
-    avatar: "https://avatars.githubusercontent.com/u/68669322?v=4",
+    avatar: "https://github.com/RodrigoGrz.png",
     "monthly-budget": 3000,
     "days-per-week": 5,
     "hours-per-day": 5,
@@ -14,6 +14,9 @@ const profile = {
 
 routes.get('/', (req, res) => res.render(view + "index"))
 routes.get('/job', (req, res) => res.render(view + "job"))
+routes.post('/job', (req, res) => {
+    console.log('salvar dado')
+})
 routes.get('/job/edit', (req, res) => res.render(view + "job-edit"))
 routes.get('/profile', (req, res) => res.render(view + "profile", { profile }))
 
