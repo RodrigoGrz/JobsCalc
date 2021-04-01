@@ -12,10 +12,18 @@ const profile = {
     "vacation-per-year": 4
 }
 
+const jobs = []
+
 routes.get('/', (req, res) => res.render(view + "index"))
 routes.get('/job', (req, res) => res.render(view + "job"))
 routes.post('/job', (req, res) => {
-    console.log(req)
+    // { name: 'rthgf', 'daily-hours': '43', 'total-hours': '67' }
+
+    const job = req.body
+    job.createdAt = Date.now() // atribuindo nova data
+
+    jobs.push()
+    return res.redirect('/')
 })
 routes.get('/job/edit', (req, res) => res.render(view + "job-edit"))
 routes.get('/profile', (req, res) => res.render(view + "profile", { profile }))
