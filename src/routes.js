@@ -35,7 +35,7 @@ const Profile = {
             const monthlyTotalHours = weekTotalHours + weeksPerMonth
 
             // qual será o valor da minha hora?
-            const valueHour = data["value-hour"] = data["monthly-budget"] / monthlyTotalHours
+            const valueHour = data["monthly-budget"] / monthlyTotalHours
 
             Profile.data = {
                 ...Profile.data,
