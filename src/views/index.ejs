@@ -21,7 +21,6 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    
 
     <script src="scripts/index.js" defer type="module"></script>
   </head>
@@ -33,16 +32,15 @@
           <img id="logo" src="/images/logo.svg" alt="Logo" />
           <span id="notification">
             <img src="/images/alert-octagon.svg" alt="Alerta" />
-            <% if(freeHours <= 0) { %>
+            <% if(freeHours <= 0){ %>
               Você não tem horas livres
-            <% } else { %> 
-            Você tem <%= freeHours %>  horas livres no seu dia
+            <% }else{ %>
+              Você tem <%= freeHours %> horas livres no seu dia
             <% } %>
-          
           </span>
           <a href="/profile" id="avatar-profile">
-            <p><%= profile.name %>  <span>Ver perfil</span></p>
-            <img src="<%= profile.avatar %> " />
+            <p><%= profile.name %> <span>Ver perfil</span></p>
+            <img src="<%= profile.avatar %>" />
           </a>
         </section>
 
@@ -53,15 +51,15 @@
 
           <div class="info">
             <div class="total">
-              <strong><%= statusCount.total %> </strong>
+              <strong><%= statusCount.total %></strong>
               Projetos ao total
             </div>
             <div class="in-progress">
-              <strong><%= statusCount.progress %> </strong>
+              <strong><%= statusCount.progress %></strong>
               Em andamento
             </div>
             <div class="finished">
-              <strong><%= statusCount.done %> </strong>
+              <strong><%= statusCount.done %></strong>
               Encerrados
             </div>
           </div>
@@ -81,9 +79,10 @@
 
         <div class="cards">
 
+
           <% jobs.forEach((job) => { %>
 
-            <div class="card <%= job.status %>" data-id="<%= job.id  %>">
+            <div class="card <%= job.status %> " data-id="<%= job.id %>">
               <div class="id column"><%= job.id %> </div>
               <div class="name column">
                 <%= job.name %> 
@@ -91,16 +90,16 @@
               <div class="deadline column">
                 <span>Prazo</span>
                 <p>
-                  <% if(job.status === "progress") { %> 
-                    <%= job.remaining %> dias para a entrega
-                  <% } else { %> 
+                  <% if(job.status === 'progress') { %>
+                    <%= job.remaining %>  dias para a entrega
+                  <% } else { %>
                     Prazo encerrado
-                  <% } %>
+                  <% } %> 
                 </p>
               </div>
               <div class="amount column">
                 <span>Valor</span>
-                <p>R$ <%= job.budget.toFixed(2).replace(".", ",") %> </p>
+                <p>R$ <%= job.budget.toFixed(2).replace('.', ',') %> </p>
               </div>
               <div class="status badge column">
                 <%= job.status === 'done' ? 'Encerrado' : 'Em andamento' %> 
@@ -120,7 +119,9 @@
             </div>
             <!-- end card -->
 
-         <% }) %> 
+          <% }) %> 
+
+         
 
         </div>
         <!-- end cards -->
